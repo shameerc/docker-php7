@@ -5,6 +5,8 @@ services:
           context: ./nginx
       ports:
           - "8080:80"
+      volumes:
+          - ./app:/var/app
       links:
           - fpm
   fpm:
