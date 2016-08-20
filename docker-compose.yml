@@ -1,0 +1,28 @@
+version: "2"
+services:
+  nginx:
+      build:
+          context: ./nginx
+      ports:
+          - "8080:80"
+      links:
+          - fpm
+  fpm:
+      build:
+          context: ./fpm
+      volumes:
+          - ./app:/var/app
+      expose:
+          - "9000"
+      links:
+          - db
+      environment:
+          - "DB_HOST=db"
+          - "DB_DATABASE=laravel"
+  db:
+      image: mariadb
+      environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_DATABASE=laravel
+      volumes:
+          - ./database:/var/lib/mysql
