@@ -9,7 +9,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN sed -i -e 's/listen = \/run\/php\/php7.0-fpm.sock/listen = 0.0.0.0:9000/g' /etc/php/7.0/fpm/pool.d/www.conf && sed -i -e 's/;daemonize = yes/daemonize = no/g' /etc/php/7.0/fpm/php-fpm.conf
 
-WORKDIR /var/app/public
+WORKDIR /var/app
 
 EXPOSE 9000
 
