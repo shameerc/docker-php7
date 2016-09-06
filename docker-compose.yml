@@ -7,8 +7,6 @@ services:
           - "8080:80"
       volumes:
           - ./app:/var/app
-      links:
-          - fpm
   fpm:
       build:
           context: ./fpm
@@ -16,8 +14,6 @@ services:
           - ./app:/var/app
       expose:
           - "9000"
-      links:
-          - db
       environment:
           - "DB_HOST=db"
           - "DB_DATABASE=laravel"
@@ -28,3 +24,5 @@ services:
           - MYSQL_DATABASE=laravel
       volumes:
           - ./database:/var/lib/mysql
+      ports:
+          - "3037:3036"
