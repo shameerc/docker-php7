@@ -30,4 +30,4 @@ docker-compose up
 
 
 ###How it works  
-@TODO
+**[Read Here](https://blog.shameerc.com/2016/08/my-docker-setup-ubuntu-php7-fpm-nginx-and-mariadb)**
