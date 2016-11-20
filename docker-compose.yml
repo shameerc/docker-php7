@@ -24,5 +24,3 @@ services:
           - MYSQL_DATABASE=laravel
       volumes:
           - ./database:/var/lib/mysql
-      ports:
-          - "3037:3036"
